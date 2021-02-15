@@ -2,6 +2,8 @@
 
 require('../app/functions.php');
 
+include('../app/_parts/_header.php');
+
 $today = date('Y-m-d H:i:s l');
 $names = [
   'Taro',
@@ -10,13 +12,7 @@ $names = [
 ];
 
 ?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>PHP Practice</title>
-</head>
-<body>
+
   <p>Hello, PHP!</p>
   <p>Today: <?php echo date('Y-m-d H:i:s l'); ?></p>
   <p>Today: <?= date('Y-m-d H:i:s l'); ?></p>
@@ -30,5 +26,7 @@ $names = [
     <?php endforeach; ?>
     <?php endif; ?>
   </ul>
-</body>
-</html>
+
+<?php
+
+include('../app/_parts/_footer.php');
