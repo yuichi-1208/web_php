@@ -3,7 +3,11 @@
 require('../app/functions.php');
 
 $today = date('Y-m-d H:i:s l');
-$name = 'Taro <script>alert(1);</script>';
+$names = [
+  'Taro',
+  'Jiro',
+  'Saburo',
+];
 
 ?>
 <!DOCTYPE html>
@@ -17,6 +21,14 @@ $name = 'Taro <script>alert(1);</script>';
   <p>Today: <?php echo date('Y-m-d H:i:s l'); ?></p>
   <p>Today: <?= date('Y-m-d H:i:s l'); ?></p>
   <p>Today: <?= $today; ?></p>
-  <p>Hello, <?= h($name); ?></p>
+  <ul>
+    <?php if (empty($names)) { ?>
+      <li>Nobody!</li>
+    <?php } else { ?>
+    <?php foreach($names as $name) { ?>
+      <li><?= h($name) ?></li>
+    <?php } ?>
+    <?php } ?>
+  </ul>
 </body>
 </html>
