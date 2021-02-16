@@ -33,7 +33,7 @@ $names = [
 
     <textarea name="message_area"></textarea>
 
-    <select name="color" id="">
+    <select name="colors[]" multiple>
       <option value="orange">Orange</option>
       <option value="pink">Pink</option>
       <option value="gold">Gold</option>
