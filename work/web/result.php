@@ -10,6 +10,7 @@ $message_area = trim(filter_input(INPUT_GET, 'message_area'));
 $message_area = $message_area !== '' ? $message_area : '...';
 $username = trim(filter_input(INPUT_GET, 'username'));
 $username = $username !== '' ? $username : '...';
+$color = filter_input(INPUT_GET, 'color');
 
 include('../app/_parts/_header.php');
 
@@ -18,6 +19,7 @@ include('../app/_parts/_header.php');
 <p><?= h($message); ?> by <?= h($username); ?></p>
 <!-- nl2br = new line 2 brは改行を表示してくれる -->
 <p><?= nl2br(h($message_area)); ?></p>
+<p><?= h($color); ?></p>
 <p><a href="index.php">Go back</a></p>
 
 <?php

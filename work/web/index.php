@@ -30,7 +30,15 @@ $names = [
   <form action="result.php" method="get">
     <input type="text" name="message">
     <input type="text" name="username">
+
     <textarea name="message_area"></textarea>
+
+    <select name="color" id="">
+      <option value="orange">Orange</option>
+      <option value="pink">Pink</option>
+      <option value="gold">Gold</option>
+    </select>
+
     <button>send</button>
   </form>
 
