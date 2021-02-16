@@ -12,7 +12,10 @@ $username = trim(filter_input(INPUT_GET, 'username'));
 $username = $username !== '' ? $username : '...';
 $colorFromGet = filter_input(INPUT_GET, 'color') ?? 'transparent';
 // setcookieを使うときは前にechoを使ったり、phpの開始タグの前にhtmlタグを書いてはいけないというルールがある
-setcookie('color', $colorFromGet);
+// setcookie('color', $colorFromGet);
+// cookieは値を編集削除できるので安全ではない。だからセッションを使う
+// session_start()という記述をすると、$_SESSIONという変数が使えるようになる
+$_SESSION['color'] = $colorFromGet;
 $colors = filter_input(INPUT_GET, 'colors', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
 $colors = empty($colors) ? 'None selected' : implode(',', $colors);
 $fruits = filter_input(INPUT_GET, 'fruits', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
