@@ -14,6 +14,13 @@ $colors = filter_input(INPUT_GET, 'colors', FILTER_DEFAULT, FILTER_FORCE_ARRAY )
 $colors = empty($colors) ? 'None selected' : implode(',', $colors);
 $fruits = filter_input(INPUT_GET, 'fruits', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
 $fruits = empty($fruits) ? 'None selected' : implode(',', $fruits);
+// $drink = filter_input(INPUT_GET, 'drink');
+// 値が渡されているかどうか（nullかそうでないか）は、issetを使って判別
+// $drink = isset($color) ? $color : 'None selected';
+// 値がセットされていなかったら、自動的に別の値をセットする
+// ?? は null合体演算子と呼ばれる
+// $drink = $color ?? 'None selected';
+$drink = filter_input(INPUT_GET, 'drink') ?? 'None selected';
 
 include('../app/_parts/_header.php');
 
@@ -24,6 +31,7 @@ include('../app/_parts/_header.php');
 <p><?= nl2br(h($message_area)); ?></p>
 <p><?= h($colors); ?></p>
 <p><?= h($fruits); ?></p>
+<p><?= h($drink); ?></p>
 <p><a href="index.php">Go back</a></p>
 
 <?php

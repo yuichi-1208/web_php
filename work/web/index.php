@@ -43,6 +43,10 @@ $names = [
     <label for=""><input type="checkbox" name="fruits[]" value="orange">Orange</label>
     <label for=""><input type="checkbox" name="fruits[]" value="banana">Banana</label>
 
+    <label for=""><input type="radio" name="drink" value="cola">Cola</label>
+    <label for=""><input type="radio" name="drink" value="water">Water</label>
+    <label for=""><input type="radio" name="drink" value="redbull">RedBull</label>
+
     <button>send</button>
   </form>
 
