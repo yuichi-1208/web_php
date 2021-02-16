@@ -2,6 +2,8 @@
 
 require('../app/functions.php');
 
+// $color = filter_input(INPUT_COOKIE, 'color') ?? 'transparent';
+
 include('../app/_parts/_header.php');
 
 $today = date('Y-m-d H:i:s l');
@@ -46,8 +48,12 @@ $names = [
     <label for=""><input type="radio" name="drink" value="cola">Cola</label>
     <label for=""><input type="radio" name="drink" value="water">Water</label>
     <label for=""><input type="radio" name="drink" value="redbull">RedBull</label>
+<p>背景色</p>
+    <label for=""><input type="radio" name="color" value="red">Red</label>
+    <label for=""><input type="radio" name="color" value="blue">Blue</label>
+    <label for=""><input type="radio" name="color" value="yellow">Yellow</label>
 
-    <button>send</button>
+    <p><button>send</button></p>
   </form>
 
 <?php
