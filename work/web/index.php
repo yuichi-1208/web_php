@@ -54,6 +54,7 @@ $names = [
     <label for=""><input type="radio" name="color" value="yellow">Yellow</label>
 
     <p><button>send</button></p>
+    <p><a href="reset.php">[reset]</a></p>
   </form>
 
 <?php
