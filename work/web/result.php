@@ -12,6 +12,8 @@ $username = trim(filter_input(INPUT_GET, 'username'));
 $username = $username !== '' ? $username : '...';
 $colors = filter_input(INPUT_GET, 'colors', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
 $colors = empty($colors) ? 'None selected' : implode(',', $colors);
+$fruits = filter_input(INPUT_GET, 'fruits', FILTER_DEFAULT, FILTER_FORCE_ARRAY );
+$fruits = empty($fruits) ? 'None selected' : implode(',', $fruits);
 
 include('../app/_parts/_header.php');
 
@@ -21,6 +23,7 @@ include('../app/_parts/_header.php');
 <!-- nl2br = new line 2 brは改行を表示してくれる -->
 <p><?= nl2br(h($message_area)); ?></p>
 <p><?= h($colors); ?></p>
+<p><?= h($fruits); ?></p>
 <p><a href="index.php">Go back</a></p>
 
 <?php

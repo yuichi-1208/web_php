@@ -39,6 +39,10 @@ $names = [
       <option value="gold">Gold</option>
     </select>
 
+    <label for=""><input type="checkbox" name="fruits[]" value="apple">Apple</label>
+    <label for=""><input type="checkbox" name="fruits[]" value="orange">Orange</label>
+    <label for=""><input type="checkbox" name="fruits[]" value="banana">Banana</label>
+
     <button>send</button>
   </form>
 
