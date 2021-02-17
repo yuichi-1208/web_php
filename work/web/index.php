@@ -18,6 +18,8 @@ define('FILENAME', '../app/messages.txt');
 
 // $_SERVERはpostにデータが送信されたかどうか(postでアクセスしたかどうか)を確かめる
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // トークンのチェックの処理を走らせる
+  validateToken();
   // post形式でデータを受け取る
   $message = trim(filter_input(INPUT_POST, 'message'));
   $message = $message !== '' ? $message : '...';
@@ -39,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // 定数を使う
 $messages = file(FILENAME, FILE_IGNORE_NEW_LINES);
 
+createToken();
 ?>
 
   <p>Hello, PHP!</p>
@@ -97,6 +100,7 @@ $messages = file(FILENAME, FILE_IGNORE_NEW_LINES);
   <form action="" method="post">
     <input type="text" name="message">
     <button>Post</button>
+    <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
   </form>
 
 <?php
