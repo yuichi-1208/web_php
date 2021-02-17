@@ -28,6 +28,15 @@ $fruits = empty($fruits) ? 'None selected' : implode(',', $fruits);
 // $drink = $color ?? 'None selected';
 $drink = filter_input(INPUT_GET, 'drink') ?? 'None selected';
 
+// post形式でデータを受け取る
+$message = trim(filter_input(INPUT_POST, 'message'));
+$message = $message !== '' ? $message : '...';
+
+$filename = '../app/messages.txt';
+$fp = fopen($filename, 'a');
+fwrite($fp, $message . "\n");
+fclose($fp);
+
 include('../app/_parts/_header.php');
 
 ?>
@@ -39,6 +48,8 @@ include('../app/_parts/_header.php');
 <p><?= h($colors); ?></p>
 <p><?= h($fruits); ?></p>
 <p><?= h($drink); ?></p>
+
+<p>message added!</p>
 <p><a href="index.php">Go back</a></p>
 
 <?php
