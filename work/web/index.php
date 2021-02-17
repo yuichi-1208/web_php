@@ -13,6 +13,9 @@ $names = [
   'Saburo',
 ];
 
+$filename = '../app/messages.txt';
+$messages = file($filename, FILE_IGNORE_NEW_LINES);
+
 ?>
 
   <p>Hello, PHP!</p>
@@ -29,7 +32,7 @@ $names = [
     <?php endif; ?>
   </ul>
 
-  <form action="result.php" method="get">
+  <!-- <form action="result.php" method="get">
     <input type="text" name="message">
     <input type="text" name="username">
 
@@ -55,6 +58,17 @@ $names = [
 
     <p><button>send</button></p>
     <p><a href="reset.php">[reset]</a></p>
+  </form> -->
+
+  <ul>
+  <?php foreach ( $messages as $message): ?>
+    <li><?= h($message); ?></li>
+  <?php endforeach; ?>
+  </ul>
+
+  <form action="result.php" method="post">
+    <input type="text" name="message">
+    <button>Post</button>
   </form>
 
 <?php
