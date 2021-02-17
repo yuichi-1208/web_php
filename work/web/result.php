@@ -28,14 +28,20 @@ $fruits = empty($fruits) ? 'None selected' : implode(',', $fruits);
 // $drink = $color ?? 'None selected';
 $drink = filter_input(INPUT_GET, 'drink') ?? 'None selected';
 
-// post形式でデータを受け取る
-$message = trim(filter_input(INPUT_POST, 'message'));
-$message = $message !== '' ? $message : '...';
+// $_SERVERはpostにデータが送信されたかどうか(postでアクセスしたかどうか)を確かめる
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // post形式でデータを受け取る
+  $message = trim(filter_input(INPUT_POST, 'message'));
+  $message = $message !== '' ? $message : '...';
 
-$filename = '../app/messages.txt';
-$fp = fopen($filename, 'a');
-fwrite($fp, $message . "\n");
-fclose($fp);
+  $filename = '../app/messages.txt';
+  $fp = fopen($filename, 'a');
+  fwrite($fp, $message . "\n");
+  fclose($fp);
+} else {
+  exit('Invalid Request');
+}
+
 
 include('../app/_parts/_header.php');
 
